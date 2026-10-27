@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=23a1f27a-d19e-4fda-b0b6-99774b01d7a7
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AimLock Ultra - 𝐍𝐡𝐚𝐭 𝐓𝐢𝐞𝐧</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+
+<!-- TOAST ERROR -->
+<div class="toast-error" id="toastError">
+  <div class="toast-content">
+    <span class="toast-icon">⚠️</span>
+    <span class="toast-message" id="errorMessage">Vui lòng chọn ít nhất một chức năng!</span>
+    <button class="toast-close-btn" onclick="closeToastError()">Đã hiểu</button>
+  </div>
+</div>
+
+<div id="menu">
+  <div class="menu-header">
+    <div class="logo-icon">🎯</div>
+    <h1>AimLock Ultra Version</h1>
+    <p style="color:rgba(255,255,255,0.3); font-size:14px; letter-spacing:2px;">
+      ✦ Bản quyền <strong style="color:#00ffcc; text-shadow: 0 0 20px rgba(0,255,204,0.3);">𝐍𝐡𝐚𝐭 𝐓𝐢𝐞𝐧</strong> ✦
+    </p>
+    <span class="status-badge online">ONLINE</span>
+    <small>APP HỖ TRỢ KÉO TÂM CỰC BÁ DÀNH CHO IOS<br>In Game: <br>•FreeFire<br>•Freefire max</small>
+  </div>
+
+  <!-- Mỗi toggle có data-base64 là một mảng JSON, có thể chứa nhiều đoạn Base64 -->
+
+  <div class="toggle-container">
+    <span class="label-text"><span class="label-icon">🔥</span> AimLock <small>Auto</small></span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="aimlock" data-base64='["QWltTG9jaw==","TG9jazIwMjQ=","QUlNTElDSw=="]'>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+
+
+
+  <div class="toggle-container">
+    <span class="label-text"><span class="label-icon">🎯</span> Kéo Tâm Nhẹ <small>1.5x</small></span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="keotam" data-base64='["S2VvVGFt","QXV0b0FpbQ==","TkVUVEFN"]'>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+
+
+
+  <div class="toggle-container">
+    <span class="label-text"><span class="label-icon">🔧</span> Fix Lỗ <small>Stable</small></span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="fixlo" data-base64='["Rml4TG8=","U3RhYmxl","RklYTE8yMDI0"]'>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+
+
+
+  <div class="toggle-container">
+    <span class="label-text"><span class="label-icon">📦</span> Giảm Rung <small>60%</small></span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="giamrung" data-base64='["R2lhbVJ1bmc=","U3RlYWR5","R0lBTVJVTkc="]'>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+
+
+
+  <div class="toggle-container">
+    <span class="label-text"><span class="label-icon">🛡️</span> Fix Giật <small>Ultra</small></span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="fixgiat" data-base64='["Rml4R2lhdA==","TWVnYQ==","RklYR0lBVA=="]'>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+
+
+
+  <div class="toggle-container">
+    <span class="label-text"><span class="label-icon">🧠</span> DPI 2000 <small>Pro</small></span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="dpi" data-base64='["RFBJMjAwMA==","UHJv","RFBJMjAwMA=="]'>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+
+
+
+  <button class="apply-button" onclick="showGameSelect()">⚡ ÁP DỤNG</button>
+
+  <div class="footer" style="margin-top: 20px;">
+    <a href="https://zalo.me/0364901154" target="_blank" class="zalo-link">
+      <img src="https://earnest-clafoutis-c63e4e.netlify.app/zl.png" alt="Zalo" style="width:20px;height:20px;vertical-align:middle;"> Zalo: 0364901154
+    </a>
+  </div>
+
+
+
+
+  <div class="copyright">
+    <strong>© 𝐍𝐡𝐚𝐭 𝐓𝐢𝐞𝐧</strong> <span class="version">v1.0</span>  •  All rights reserved
+  </div>
+</div>
+
+
+<div class="game-select" id="gameSelect">
+  <div class="game-box">
+    <h2>🎮 Chọn Game</h2>
+    <p>Chọn phiên bản Free Fire bạn muốn mở</p>
+    
+    <button class="game-btn ff" onclick="selectGame('freefire')">
+      <span class="icon">🔥</span> Free Fire
+      <span class="sub">Phiên bản thường</span>
+    </button>
+    
+    <button class="game-btn ffmax" onclick="selectGame('freefiremax')">
+      <span class="icon">⚡</span> Free Fire MAX
+      <span class="sub">Phiên bản nâng cấp</span>
+    </button>
+    
+    <button class="close-game" onclick="closeGameSelect()">✕ Đóng</button>
+  </div>
+</div>
+
+<!-- Loading overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">
+    Đang chạy dữ liệu <span class="loading-dots"></span>
+  </div>
+  <div class="loading-success" id="loadingSuccess">
+    <span class="check">✅</span>
+    <div class="msg">
+      ĐÃ ÁP DỤNG THÀNH CÔNG!
+      <small>⏳ Đừng thoát app mà hãy vào game liền</small>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html><script async src=".netlify/scripts/hud%3Fvariant=public" data-nf-variant="public" data-netlify-site-id="23a1f27a-d19e-4fda-b0b6-99774b01d7a7" data-app-host="app.netlify.com" data-account-tier="free"></script>
